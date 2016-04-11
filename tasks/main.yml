@@ -6,7 +6,9 @@
     state: present
 
 - name: Configure dnsmasq
-  copy: src=dnsmasq.conf dest=/usr/local/etc/dnsmasq.conf
+  copy:
+    src: dnsmasq.conf
+    dest: /usr/local/etc/dnsmasq.conf
 
 - name: Create dnsmasq launchctl configuration
   copy:
@@ -28,5 +30,8 @@
   become: yes
 
 - name: Configure dnsmasq to serve *.dev
-  copy: src=resolver.dev dest=/etc/resolver/dev
+  copy:
+    src: resolver.dev
+    dest: /etc/resolver/dev
+    owner: root
   become: yes
