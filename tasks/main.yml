@@ -13,11 +13,11 @@
     src: /usr/local/opt/dnsmasq/homebrew.mxcl.dnsmasq.plist
     dest: /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
     owner: root
-  become: sudo
+  become: yes
 
 - name: Start dnsmasq
   shell: launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
-  become: sudo
+  become: yes
 
 - name: Make /etc/resolver
   file:
@@ -25,8 +25,8 @@
     group: admin
     mode: 0755
     state: directory
-  become: sudo
+  become: yes
 
 - name: Configure dnsmasq to serve *.dev
   copy: src=resolver.dev dest=/etc/resolver/dev
-  become: sudo
+  become: yes
