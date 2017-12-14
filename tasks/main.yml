@@ -5,6 +5,11 @@
     name: dnsmasq
     state: present
 
+- name: Remove .dev resolver if present.
+  file:
+    path: /etc/resolver/dev
+    state: absent
+
 - name: Configure dnsmasq
   copy:
     src: dnsmasq.conf
