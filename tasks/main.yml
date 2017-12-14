@@ -11,6 +11,12 @@
     state: absent
   become: yes
 
+- name: Remove .local resolver if present.
+  file:
+    path: /etc/resolver/local
+    state: absent
+  become: yes
+
 - name: Configure dnsmasq
   copy:
     src: dnsmasq.conf
@@ -37,7 +43,7 @@
 
 - name: Configure dnsmasq to serve *.local
   copy:
-    src: resolver.local
-    dest: /etc/resolver/local
+    src: resolver.localhost
+    dest: /etc/resolver/localhost
     owner: root
   become: yes
