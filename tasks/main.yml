@@ -29,9 +29,9 @@
     state: directory
   become: yes
 
-- name: Configure dnsmasq to serve *.dev
+- name: Configure dnsmasq to serve *.local
   copy:
-    src: resolver.dev
-    dest: /etc/resolver/dev
+    src: resolver.local
+    dest: /etc/resolver/local
     owner: root
   become: yes
