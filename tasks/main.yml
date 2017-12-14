@@ -9,7 +9,7 @@
   file:
     path: /etc/resolver/dev
     state: absent
-    become: yes
+  become: yes
 
 - name: Configure dnsmasq
   copy:
